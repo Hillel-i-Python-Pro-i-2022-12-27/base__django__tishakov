@@ -1,0 +1,32 @@
+{% extends '_helpers/_base.html' %}
+
+{% block content %}
+
+    <h1>Welcome to your profile, {{ user.username }}</h1>
+    {% if user.photo %}
+        <img src="{{ user.photo.url }}" alt="Photo" width="150">
+    {% endif %}
+
+    {% if user.first_name %}
+        <p>First name : {{ user.first_name }}</p>
+    {% else %}
+        <p>First name: "You can add this info"</p>
+    {% endif %}
+
+    {% if user.last_name %}
+        <p>Last name : {{ user.last_name }}</p>
+    {% else %}
+        <p>Last name: "You can add this info"</p>
+    {% endif %}
+
+    <p>Email : {{ user.email }}</p>
+
+    <div class="my-elements-contols">
+        <a href="{% url 'users:update_profile' pk=user.id %}">
+            <button class="btn btn-warning">
+                Edit Profile
+            </button>
+        </a>
+    </div>
+
+{% endblock %}
