@@ -46,6 +46,3 @@ class UserUpdateView(UpdateView):
     )
 
     success_url = reverse_lazy("basic:index")
-from django.shortcuts import render
-
-# Create your views here.
